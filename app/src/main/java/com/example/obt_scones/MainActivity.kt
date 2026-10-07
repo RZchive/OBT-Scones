@@ -1,6 +1,7 @@
 package com.example.obt_scones
 
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -25,9 +26,26 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        binding.btnSeeMore.setOnClickListener {
-            val intent = Intent(this, DetailActivity::class.java)
-            startActivity(intent)
+        setupBottomNav()
+    }
+
+    private fun setupBottomNav() {
+        val skyBlue = resources.getColor(R.color.primary_sky_blue, theme)
+
+        // Highlight Dashboard as Active
+        binding.bottomNav.tvNavDashboard.setTextColor(skyBlue)
+        binding.bottomNav.ivNavDashboard.imageTintList = ColorStateList.valueOf(skyBlue)
+
+        binding.bottomNav.navDashboard.setOnClickListener {
+            // Already here
+        }
+        binding.bottomNav.navProfil.setOnClickListener {
+            startActivity(Intent(this, ProfilLpkActivity::class.java))
+            finish()
+        }
+        binding.bottomNav.navPeserta.setOnClickListener {
+            startActivity(Intent(this, PesertaActivity::class.java))
+            finish()
         }
     }
 }

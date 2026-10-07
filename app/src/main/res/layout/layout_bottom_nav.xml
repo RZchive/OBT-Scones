@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootBottomNav"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:background="@color/white"
+    android:baselineAligned="false"
+    android:elevation="8dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:weightSum="3">
+
+    <!-- Tab 1: Dashboard -->
+    <LinearLayout
+        android:id="@+id/navDashboard"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ivNavDashboard"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="Dashboard"
+            android:src="@android:drawable/ic_menu_myplaces"
+            app:tint="#666666" />
+
+        <TextView
+            android:id="@+id/tvNavDashboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Dashboard"
+            android:textColor="#666666"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <!-- Tab 2: Profil LPK -->
+    <LinearLayout
+        android:id="@+id/navProfil"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ivNavProfil"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="Profil LPK"
+            android:src="@android:drawable/ic_menu_agenda"
+            app:tint="#666666" />
+
+        <TextView
+            android:id="@+id/tvNavProfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Profil LPK"
+            android:textColor="#666666"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <!-- Tab 3: Peserta -->
+    <LinearLayout
+        android:id="@+id/navPeserta"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ivNavPeserta"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="Peserta"
+            android:src="@android:drawable/ic_menu_manage"
+            app:tint="#666666" />
+
+        <TextView
+            android:id="@+id/tvNavPeserta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Peserta"
+            android:textColor="#666666"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+</LinearLayout>
