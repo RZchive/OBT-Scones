@@ -9,7 +9,7 @@
     android:elevation="8dp"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:weightSum="3">
+    android:weightSum="4">
 
     <!-- Tab 1: Dashboard -->
     <LinearLayout
@@ -24,8 +24,8 @@
 
         <ImageView
             android:id="@+id/ivNavDashboard"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             android:contentDescription="Dashboard"
             android:src="@android:drawable/ic_menu_myplaces"
             app:tint="#666666" />
@@ -37,7 +37,7 @@
             android:layout_marginTop="2dp"
             android:text="Dashboard"
             android:textColor="#666666"
-            android:textSize="11sp" />
+            android:textSize="10sp" />
     </LinearLayout>
 
     <!-- Tab 2: Profil LPK -->
@@ -53,8 +53,8 @@
 
         <ImageView
             android:id="@+id/ivNavProfil"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             android:contentDescription="Profil LPK"
             android:src="@android:drawable/ic_menu_agenda"
             app:tint="#666666" />
@@ -66,7 +66,7 @@
             android:layout_marginTop="2dp"
             android:text="Profil LPK"
             android:textColor="#666666"
-            android:textSize="11sp" />
+            android:textSize="10sp" />
     </LinearLayout>
 
     <!-- Tab 3: Peserta -->
@@ -82,8 +82,8 @@
 
         <ImageView
             android:id="@+id/ivNavPeserta"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             android:contentDescription="Peserta"
             android:src="@android:drawable/ic_menu_manage"
             app:tint="#666666" />
@@ -95,7 +95,36 @@
             android:layout_marginTop="2dp"
             android:text="Peserta"
             android:textColor="#666666"
-            android:textSize="11sp" />
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <!-- Tab 4: Developer -->
+    <LinearLayout
+        android:id="@+id/navDeveloper"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ivNavDeveloper"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:contentDescription="Developer"
+            android:src="@android:drawable/ic_menu_info_details"
+            app:tint="#666666" />
+
+        <TextView
+            android:id="@+id/tvNavDeveloper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Developer"
+            android:textColor="#666666"
+            android:textSize="10sp" />
     </LinearLayout>
 
 </LinearLayout>

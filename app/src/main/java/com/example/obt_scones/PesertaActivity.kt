@@ -74,5 +74,9 @@ class PesertaActivity : AppCompatActivity() {
         binding.bottomNav.navPeserta.setOnClickListener {
             // Already here
         }
+        binding.bottomNav.navDeveloper.setOnClickListener {
+            startActivity(Intent(this, DeveloperActivity::class.java))
+            finish()
+        }
     }
 }

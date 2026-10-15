@@ -69,5 +69,9 @@ class ProfilLpkActivity : AppCompatActivity() {
             startActivity(Intent(this, PesertaActivity::class.java))
             finish()
         }
+        binding.bottomNav.navDeveloper.setOnClickListener {
+            startActivity(Intent(this, DeveloperActivity::class.java))
+            finish()
+        }
     }
 }
