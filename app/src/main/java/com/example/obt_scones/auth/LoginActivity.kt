@@ -27,10 +27,25 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.btnSubmit.setOnClickListener {
-            val nomor = binding.inputNoPengguna.text.toString()
-            val intent = Intent(this, ThirdResultActivity::class.java).apply {
-                putExtra("EXTRA_NOMOR", nomor)
+            val username = binding.inputNoPengguna.text.toString()
+            val password = binding.editTextTextPassword.text.toString()
+
+            val sharedPref = getSharedPreferences("USER_PREF", MODE_PRIVATE)
+            val savedUsername = sharedPref.getString("USERNAME", "") ?: ""
+            val savedPassword = sharedPref.getString("PASSWORD", "") ?: ""
+
+            if ((username.isNotEmpty() && username == password) ||
+                (savedUsername.isNotEmpty() && username == savedUsername && password == savedPassword)
+            ) {
+                val intent = Intent(this, com.example.obt_scones.MainActivity::class.java)
+                startActivity(intent)
+            } else {
+                android.widget.Toast.makeText(this, "Login Gagal!", android.widget.Toast.LENGTH_SHORT).show()
             }
+        }
+
+        binding.tvRegister.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
     }
