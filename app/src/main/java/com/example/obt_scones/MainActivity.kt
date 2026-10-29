@@ -32,9 +32,26 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // Default Fragment
+        val openTab = intent.getStringExtra("OPEN_TAB")
         if (savedInstanceState == null) {
-            replaceFragment(DashboardFragment())
+            when (openTab) {
+                "profil" -> {
+                    replaceFragment(ProfilLpkFragment())
+                    binding.bottomNavView.selectedItemId = R.id.nav_profil
+                }
+                "peserta" -> {
+                    replaceFragment(PesertaFragment())
+                    binding.bottomNavView.selectedItemId = R.id.nav_peserta
+                }
+                "developer" -> {
+                    replaceFragment(DeveloperFragment())
+                    binding.bottomNavView.selectedItemId = R.id.nav_developer
+                }
+                else -> {
+                    replaceFragment(DashboardFragment())
+                    binding.bottomNavView.selectedItemId = R.id.nav_dashboard
+                }
+            }
         }
 
         binding.bottomNavView.setOnItemSelectedListener { item ->

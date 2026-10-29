@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/secondary_off_white"
+    android:background="@color/app_background"
     tools:context=".MainActivity">
 
     <FrameLayout
@@ -21,7 +21,7 @@
         android:id="@+id/bottomNavView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/app_surface"
         app:itemIconTint="@color/primary_sky_blue"
         app:itemTextColor="@color/primary_sky_blue"
         app:menu="@menu/bottom_nav_menu"

@@ -26,28 +26,9 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".auth.RegisterActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".auth.VerifikasiActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".PesertaActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".ProfilLpkActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".DeveloperActivity"
-            android:exported="false"
+            android:configChanges="uiMode|screenSize|smallestScreenSize|screenLayout"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".pertemuan_3.ThirdResultActivity"

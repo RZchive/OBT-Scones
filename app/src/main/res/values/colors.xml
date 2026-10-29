@@ -6,4 +6,11 @@
     <color name="dark_gray">#1F1F1F</color>
     <color name="primary_sky_blue">#51BFE9</color>
     <color name="secondary_off_white">#F9F9F9</color>
+
+    <!-- Semantic Adaptive Colors (Light Mode) -->
+    <color name="app_background">#F9F9F9</color>
+    <color name="app_surface">#FFFFFF</color>
+    <color name="app_text_primary">#000000</color>
+    <color name="app_text_secondary">#666666</color>
+    <color name="card_stroke">#E0E0E0</color>
 </resources>
