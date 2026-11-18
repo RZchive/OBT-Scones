@@ -18,18 +18,35 @@
             android:layout_height="wrap_content"
             android:paddingBottom="24dp">
 
-            <TextView
-                android:id="@+id/tvDashboardTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
-                android:fontFamily="sans-serif-black"
-                android:text="Dashboard"
-                android:textColor="@color/app_text_primary"
-                android:textSize="28sp"
+            <!-- Header with Background Drawable -->
+            <LinearLayout
+                android:id="@+id/headerLayout"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:background="@drawable/bg_home_gradient"
+                android:gravity="bottom"
+                android:orientation="vertical"
+                android:padding="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:text="SiManDat Dashboard"
+                    android:textColor="@color/white"
+                    android:textSize="26sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Sistem Informasi Manajemen Data Tenaga Kerja"
+                    android:textColor="#E0F7FA"
+                    android:textSize="14sp" />
+            </LinearLayout>
 
             <!-- Stat Card 1 & 2 -->
             <com.google.android.material.card.MaterialCardView
@@ -37,7 +54,7 @@
                 android:layout_width="0dp"
                 android:layout_height="110dp"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="8dp"
                 app:cardBackgroundColor="@color/app_surface"
                 app:cardCornerRadius="16dp"
@@ -46,7 +63,7 @@
                 app:strokeWidth="1dp"
                 app:layout_constraintEnd_toStartOf="@+id/cardTotalPeserta"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvDashboardTitle">
+                app:layout_constraintTop_toBottomOf="@+id/headerLayout">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -77,7 +94,7 @@
                 android:layout_width="0dp"
                 android:layout_height="110dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="24dp"
                 app:cardBackgroundColor="@color/app_surface"
                 app:cardCornerRadius="16dp"
@@ -86,7 +103,7 @@
                 app:strokeWidth="1dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/cardPesertaLulus"
-                app:layout_constraintTop_toBottomOf="@+id/tvDashboardTitle">
+                app:layout_constraintTop_toBottomOf="@+id/headerLayout">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -113,198 +130,33 @@
             </com.google.android.material.card.MaterialCardView>
 
             <TextView
-                android:id="@+id/tvPelatihanHeader"
+                android:id="@+id/tvTrainingHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="20dp"
-                android:text="Pelatihan"
-                android:textColor="@color/app_text_secondary"
-                android:textSize="16sp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Daftar Program Pelatihan (Grid)"
+                android:textColor="@color/app_text_primary"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardPesertaLulus" />
 
-            <!-- Pelatihan Total Card -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardTotalPelatihan"
+            <!-- RecyclerView with Grid Layout -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTraining"
                 android:layout_width="0dp"
-                android:layout_height="90dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="24dp"
-                app:cardBackgroundColor="@color/app_surface"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="2dp"
-                app:strokeColor="@color/card_stroke"
-                app:strokeWidth="1dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvPelatihanHeader">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical"
-                    android:paddingHorizontal="20dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Total"
-                        android:textColor="@color/app_text_secondary"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-black"
-                        android:text="50"
-                        android:textColor="@color/app_text_primary"
-                        android:textSize="22sp" />
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <!-- Tingkat Kelulusan & Sertifikasi Terbit -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardKelulusan"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="8dp"
-                app:cardBackgroundColor="@color/app_surface"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="2dp"
-                app:strokeColor="@color/card_stroke"
-                app:strokeWidth="1dp"
-                app:layout_constraintEnd_toStartOf="@+id/cardSertifikasi"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardTotalPelatihan">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Tingkat Kelulusan"
-                        android:textColor="@color/app_text_secondary"
-                        android:textSize="13sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:fontFamily="sans-serif-black"
-                        android:text="80%"
-                        android:textColor="@color/app_text_primary"
-                        android:textSize="20sp" />
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardSertifikasi"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="24dp"
-                app:cardBackgroundColor="@color/app_surface"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="2dp"
-                app:strokeColor="@color/card_stroke"
-                app:strokeWidth="1dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/cardKelulusan"
-                app:layout_constraintTop_toBottomOf="@+id/cardTotalPelatihan">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sertifikasi Terbit"
-                        android:textColor="@color/app_text_secondary"
-                        android:textSize="13sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:fontFamily="sans-serif-black"
-                        android:text="12"
-                        android:textColor="@color/app_text_primary"
-                        android:textSize="20sp" />
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <TextView
-                android:id="@+id/tvExportHeader"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="20dp"
-                android:text="Export Data Pelatihan Sebagai PDF"
-                android:textColor="@color/app_text_secondary"
-                android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardKelulusan" />
-
-            <Button
-                android:id="@+id/btnExportPdf"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="24dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginEnd="18dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="24dp"
-                android:backgroundTint="@color/app_surface"
-                android:text="Export PDF"
-                android:textColor="#FF5252"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                app:strokeColor="#FF5252"
-                app:strokeWidth="1.5dp"
+                android:nestedScrollingEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvExportHeader" />
-
-            <TextView
-                android:id="@+id/tvExportExcelHeader"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
-                android:text="Export Data Pelatihan Sebagai Excel"
-                android:textColor="@color/app_text_secondary"
-                android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnExportPdf" />
-
-            <Button
-                android:id="@+id/btnExportExcel"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="24dp"
-                android:backgroundTint="@color/app_surface"
-                android:text="Export Excel"
-                android:textColor="#4CAF50"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                app:strokeColor="#4CAF50"
-                app:strokeWidth="1.5dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvExportExcelHeader" />
+                app:layout_constraintTop_toBottomOf="@+id/tvTrainingHeader"
+                tools:itemCount="4"
+                tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                tools:spanCount="2" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

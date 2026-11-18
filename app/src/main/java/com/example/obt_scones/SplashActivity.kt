@@ -10,6 +10,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.obt_scones.auth.LoginActivity
 import com.example.obt_scones.databinding.ActivitySplashBinding
+import com.example.obt_scones.onboarding.OnboardingActivity
 
 class SplashActivity : AppCompatActivity() {
 
@@ -29,15 +30,18 @@ class SplashActivity : AppCompatActivity() {
         }
 
         Handler(Looper.getMainLooper()).postDelayed({
-            checkLoginStatus()
+            checkFlowStatus()
         }, 2000)
     }
 
-    private fun checkLoginStatus() {
+    private fun checkFlowStatus() {
         val sharedPreferences = getSharedPreferences("SiManDatPrefs", MODE_PRIVATE)
+        val isOnboarded = sharedPreferences.getBoolean("isOnboarded", false)
         val isLogin = sharedPreferences.getBoolean("isLogin", false)
 
-        val intent = if (isLogin) {
+        val intent = if (!isOnboarded) {
+            Intent(this, OnboardingActivity::class.java)
+        } else if (isLogin) {
             Intent(this, MainActivity::class.java)
         } else {
             Intent(this, LoginActivity::class.java)
