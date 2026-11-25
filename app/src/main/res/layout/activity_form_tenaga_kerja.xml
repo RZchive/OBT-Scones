@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background"
+    android:fillViewport="true"
+    tools:context=".FormTenagaKerjaActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/tvFormTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:text="Form Tenaga Kerja"
+            android:textColor="@color/app_text_primary"
+            android:textSize="26sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/etNik"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_input_rounded"
+            android:hint="NIK"
+            android:inputType="number"
+            android:paddingHorizontal="16dp"
+            android:textColor="@color/app_text_primary"
+            android:textColorHint="#888888"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvFormTitle" />
+
+        <EditText
+            android:id="@+id/etNama"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_input_rounded"
+            android:hint="Nama Lengkap"
+            android:inputType="textPersonName"
+            android:paddingHorizontal="16dp"
+            android:textColor="@color/app_text_primary"
+            android:textColorHint="#888888"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etNik" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_input_rounded"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:paddingHorizontal="16dp"
+            android:textColor="@color/app_text_primary"
+            android:textColorHint="#888888"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etNama" />
+
+        <EditText
+            android:id="@+id/etNoHp"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_input_rounded"
+            android:hint="Nomor HP"
+            android:inputType="phone"
+            android:paddingHorizontal="16dp"
+            android:textColor="@color/app_text_primary"
+            android:textColorHint="#888888"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+
+        <EditText
+            android:id="@+id/etTanggalLahir"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_input_rounded"
+            android:hint="Tanggal Lahir (YYYY-MM-DD)"
+            android:inputType="date"
+            android:paddingHorizontal="16dp"
+            android:textColor="@color/app_text_primary"
+            android:textColorHint="#888888"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etNoHp" />
+
+        <EditText
+            android:id="@+id/etAlamat"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_input_rounded"
+            android:hint="Alamat"
+            android:inputType="textPostalAddress"
+            android:paddingHorizontal="16dp"
+            android:textColor="@color/app_text_primary"
+            android:textColorHint="#888888"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etTanggalLahir" />
+
+        <EditText
+            android:id="@+id/etPendidikan"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_input_rounded"
+            android:hint="Pendidikan Terakhir (e.g. S1, SMK)"
+            android:inputType="text"
+            android:paddingHorizontal="16dp"
+            android:textColor="@color/app_text_primary"
+            android:textColorHint="#888888"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etAlamat" />
+
+        <EditText
+            android:id="@+id/etFoto"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_input_rounded"
+            android:hint="Path Foto (Opsional, e.g. /images/user.jpg)"
+            android:inputType="textUri"
+            android:paddingHorizontal="16dp"
+            android:textColor="@color/app_text_primary"
+            android:textColorHint="#888888"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etPendidikan" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/primary_sky_blue"
+            android:text="Simpan Data"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etFoto" />
+
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="#FF5252"
+            android:text="Hapus Data"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnSave"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

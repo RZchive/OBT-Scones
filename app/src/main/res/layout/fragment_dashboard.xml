@@ -16,7 +16,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="24dp">
+            android:paddingBottom="32dp">
 
             <!-- Header with Background Drawable -->
             <LinearLayout
@@ -157,6 +157,38 @@
                 tools:itemCount="4"
                 tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 tools:spanCount="2" />
+
+            <Button
+                android:id="@+id/btnOpenTenagaKerja"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:backgroundTint="@color/primary_sky_blue"
+                android:text="Kelola Tenaga Kerja (CRUD)"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rvTraining" />
+
+            <Button
+                android:id="@+id/btnOpenPelatihan"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="24dp"
+                android:backgroundTint="@color/primary_sky_blue"
+                android:text="Kelola Pelatihan (CRUD)"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnOpenTenagaKerja" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

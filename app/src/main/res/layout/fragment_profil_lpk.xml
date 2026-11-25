@@ -16,7 +16,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="24dp">
+            android:paddingBottom="32dp">
 
             <ImageView
                 android:id="@+id/ivBanner"
@@ -53,18 +53,20 @@
                     android:padding="20dp">
 
                     <TextView
+                        android:id="@+id/tvNamaProfile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-black"
-                        android:text="LPK Riau Tech Academy"
+                        android:text="Nama User"
                         android:textColor="@color/app_text_primary"
                         android:textSize="20sp" />
 
                     <TextView
+                        android:id="@+id/tvRoleProfile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Lembaga Pelatihan Kerja • Pekanbaru"
+                        android:text="ROLE • DISNAKERTA."
                         android:textColor="@color/app_text_secondary"
                         android:textSize="14sp" />
 
@@ -156,7 +158,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-black"
-                        android:text="Informasi Lembaga"
+                        android:text="Informasi Profil"
                         android:textColor="@color/app_text_primary"
                         android:textSize="18sp" />
 
@@ -164,7 +166,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="Data profil LPK Anda"
+                        android:text="Data akun yang sedang login"
                         android:textColor="@color/app_text_secondary"
                         android:textSize="13sp" />
 
@@ -182,7 +184,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Nama LPK"
+                            android:text="Nama Pengguna"
                             android:textColor="@color/app_text_secondary"
                             android:textSize="12sp" />
 
@@ -191,7 +193,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
                             android:fontFamily="sans-serif-medium"
-                            android:text="LPK Riau Tech Academy"
+                            android:text="Admin Disnaker"
                             android:textColor="@color/app_text_primary"
                             android:textSize="15sp" />
                     </LinearLayout>
@@ -210,11 +212,12 @@
                             android:textSize="12sp" />
 
                         <TextView
+                            android:id="@+id/tvEmailProfile"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
                             android:fontFamily="sans-serif-medium"
-                            android:text="riautech@example.com"
+                            android:text="admin@example.com"
                             android:textColor="@color/primary_sky_blue"
                             android:textSize="15sp" />
                     </LinearLayout>
@@ -228,7 +231,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Telepon"
+                            android:text="Instansi"
                             android:textColor="@color/app_text_secondary"
                             android:textSize="12sp" />
 
@@ -237,53 +240,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
                             android:fontFamily="sans-serif-medium"
-                            android:text="0812 3456 7890"
-                            android:textColor="@color/app_text_primary"
-                            android:textSize="15sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Nomor Izin"
-                            android:textColor="@color/app_text_secondary"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="sans-serif-medium"
-                            android:text="LPK/1471/2025"
-                            android:textColor="@color/app_text_primary"
-                            android:textSize="15sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Alamat"
-                            android:textColor="@color/app_text_secondary"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="sans-serif-medium"
-                            android:text="Jl. Soekarno Hatta No. 88, Pekanbaru"
+                            android:text="Disnakertrans Provinsi Riau"
                             android:textColor="@color/app_text_primary"
                             android:textSize="15sp" />
                     </LinearLayout>
@@ -342,6 +299,45 @@
                         android:id="@+id/switchDarkMode"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Logout Button Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardLogout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="@color/app_surface"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#FF5252"
+                app:strokeWidth="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardDarkMode">
+
+                <LinearLayout
+                    android:id="@+id/btnLogout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-black"
+                        android:text="Logout (Keluar Akun)"
+                        android:textColor="#FF5252"
+                        android:textSize="18sp" />
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>

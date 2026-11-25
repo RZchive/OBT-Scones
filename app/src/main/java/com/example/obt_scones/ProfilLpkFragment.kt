@@ -2,6 +2,7 @@ package com.example.obt_scones
 
 import android.R
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -12,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
+import com.example.obt_scones.auth.LoginActivity
 import com.example.obt_scones.databinding.FragmentProfilLpkBinding
 
 class ProfilLpkFragment : Fragment() {
@@ -36,6 +38,16 @@ class ProfilLpkFragment : Fragment() {
             }, 1500)
         }
 
+        // Load logged in user data from SharedPreferences
+        val sharedPreferences = requireActivity().getSharedPreferences("SiManDatPrefs", Context.MODE_PRIVATE)
+        val name = sharedPreferences.getString("userName", "Admin Disnaker") ?: "Admin Disnaker"
+        val email = sharedPreferences.getString("userEmail", "admin@example.com") ?: "admin@example.com"
+        val role = sharedPreferences.getString("userRole", "admin") ?: "admin"
+
+        binding.tvNamaProfile.text = name
+        binding.tvRoleProfile.text = "${role.uppercase()} • DISNAKERTRANs"
+        binding.tvEmailProfile.text = email
+
         // Set initial switch state based on current night mode
         val currentNightMode = AppCompatDelegate.getDefaultNightMode()
         binding.switchDarkMode.isChecked = (currentNightMode == AppCompatDelegate.MODE_NIGHT_YES)
@@ -47,7 +59,7 @@ class ProfilLpkFragment : Fragment() {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
 
-            // Smooth transition animation when restarting activity while keeping the current tab (Profil LPK)
+            // Smooth transition animation when restarting activity while keeping the current tab (Profil)
             activity?.let {
                 it.finish()
                 val intent = Intent(it, it::class.java).apply {
@@ -61,10 +73,20 @@ class ProfilLpkFragment : Fragment() {
                         R.anim.fade_out
                     )
                 } else {
-                    @Suppress("DecodedDeprecation", "DEPRECATION")
+                    @Suppress("DEPRECATION")
                     it.overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
                 }
             }
+        }
+
+        binding.btnLogout.setOnClickListener {
+            sharedPreferences.edit().putBoolean("isLogin", false).apply()
+
+            val intent = Intent(requireContext(), LoginActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            }
+            startActivity(intent)
+            requireActivity().finish()
         }
     }
 

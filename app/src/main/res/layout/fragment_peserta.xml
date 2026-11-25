@@ -19,11 +19,25 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
             android:fontFamily="sans-serif-black"
-            android:text="Data Peserta"
+            android:text="Data Peserta (Supabase)"
             android:textColor="@color/app_text_primary"
-            android:textSize="28sp"
+            android:textSize="26sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnAddPeserta"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginEnd="24dp"
+            android:backgroundTint="@color/primary_sky_blue"
+            android:text="+ Tambah"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tvPesertaTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvPesertaTitle" />
 
         <EditText
             android:id="@+id/etSearch"
@@ -43,194 +57,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvPesertaTitle" />
 
-        <ScrollView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPeserta"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
-            android:fillViewport="true"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etSearch">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingHorizontal="24dp"
-                android:paddingBottom="24dp">
-
-                <!-- Participant Item 1 -->
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cardPeserta1"
-                    android:layout_width="match_parent"
-                    android:layout_height="72dp"
-                    android:layout_marginBottom="12dp"
-                    app:cardBackgroundColor="@color/app_surface"
-                    app:cardCornerRadius="14dp"
-                    app:cardElevation="1dp"
-                    app:strokeColor="@color/card_stroke"
-                    app:strokeWidth="1dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="16dp">
-
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:contentDescription="Avatar"
-                            android:src="@drawable/ic_launcher_foreground" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:layout_weight="1"
-                            android:fontFamily="sans-serif-medium"
-                            android:text="Karen Den"
-                            android:textColor="@color/app_text_primary"
-                            android:textSize="16sp" />
-
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:contentDescription="Arrow"
-                            android:src="@android:drawable/ic_media_play" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <!-- Participant Item 2 -->
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="72dp"
-                    android:layout_marginBottom="12dp"
-                    app:cardBackgroundColor="@color/app_surface"
-                    app:cardCornerRadius="14dp"
-                    app:cardElevation="1dp"
-                    app:strokeColor="@color/card_stroke"
-                    app:strokeWidth="1dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="16dp">
-
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:contentDescription="Avatar"
-                            android:src="@drawable/ic_launcher_foreground" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:layout_weight="1"
-                            android:fontFamily="sans-serif-medium"
-                            android:text="Anoop Jain"
-                            android:textColor="@color/app_text_primary"
-                            android:textSize="16sp" />
-
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:contentDescription="Arrow"
-                            android:src="@android:drawable/ic_media_play" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <!-- Participant Item 3 -->
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="72dp"
-                    android:layout_marginBottom="12dp"
-                    app:cardBackgroundColor="@color/app_surface"
-                    app:cardCornerRadius="14dp"
-                    app:cardElevation="1dp"
-                    app:strokeColor="@color/card_stroke"
-                    app:strokeWidth="1dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="16dp">
-
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:contentDescription="Avatar"
-                            android:src="@drawable/ic_launcher_foreground" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:layout_weight="1"
-                            android:fontFamily="sans-serif-medium"
-                            android:text="Ashley Hills"
-                            android:textColor="@color/app_text_primary"
-                            android:textSize="16sp" />
-
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:contentDescription="Arrow"
-                            android:src="@android:drawable/ic_media_play" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <!-- Participant Item 4 -->
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="72dp"
-                    android:layout_marginBottom="12dp"
-                    app:cardBackgroundColor="@color/app_surface"
-                    app:cardCornerRadius="14dp"
-                    app:cardElevation="1dp"
-                    app:strokeColor="@color/card_stroke"
-                    app:strokeWidth="1dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="16dp">
-
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:contentDescription="Avatar"
-                            android:src="@drawable/ic_launcher_foreground" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:layout_weight="1"
-                            android:fontFamily="sans-serif-medium"
-                            android:text="David Silverstein"
-                            android:textColor="@color/app_text_primary"
-                            android:textSize="16sp" />
-
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:contentDescription="Arrow"
-                            android:src="@android:drawable/ic_media_play" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-            </LinearLayout>
-        </ScrollView>
+            app:layout_constraintTop_toBottomOf="@+id/etSearch"
+            tools:itemCount="5" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

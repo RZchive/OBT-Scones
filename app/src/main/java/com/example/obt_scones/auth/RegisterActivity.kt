@@ -1,13 +1,22 @@
 package com.example.obt_scones.auth
 
-import android.app.DatePickerDialog
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import android.widget.RadioButton
+import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.example.obt_scones.data.api.SupabaseClient
 import com.example.obt_scones.databinding.ActivityRegisterBinding
-import java.util.Calendar
+import com.example.obt_scones.model.UserModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import org.mindrot.jbcrypt.BCrypt
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -15,57 +24,58 @@ class RegisterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.inputTanggalLahir.setOnClickListener {
-            val calendar = Calendar.getInstance()
-            val year = calendar.get(Calendar.YEAR)
-            val month = calendar.get(Calendar.MONTH)
-            val day = calendar.get(Calendar.DAY_OF_MONTH)
-
-            val datePickerDialog = DatePickerDialog(
-                this,
-                { _, selectedYear, selectedMonth, selectedDay ->
-                    val dateString = "$selectedDay/${selectedMonth + 1}/$selectedYear"
-                    binding.inputTanggalLahir.setText(dateString)
-                },
-                year,
-                month,
-                day
-            )
-            datePickerDialog.show()
+        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
         }
 
-        binding.btnSelanjutnya.setOnClickListener {
-            val nama = binding.inputNama.text.toString()
-            val email = binding.inputEmail.text.toString()
-            val tanggalLahir = binding.inputTanggalLahir.text.toString()
+        binding.btnRegister.setOnClickListener {
+            val nama = binding.etNama.text.toString().trim()
+            val email = binding.etEmail.text.toString().trim()
+            val password = binding.etPassword.text.toString().trim()
 
-            val selectedGenderId = binding.rgJenisKelamin.checkedRadioButtonId
-            val jenisKelamin = if (selectedGenderId != -1) {
-                findViewById<RadioButton>(selectedGenderId).text.toString()
+            if (nama.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
+                // Hash password using BCrypt (matching Laravel Hash::make())
+                val hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt())
+                // Generate current timestamp matching Laravel timestamps
+                val currentTimestamp = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(Date())
+
+                val newUser = UserModel(
+                    nama = nama,
+                    email = email,
+                    password = hashedPassword,
+                    role = "lpk",
+                    status = "aktif",
+                    created_at = currentTimestamp,
+                    updated_at = currentTimestamp
+                )
+
+                CoroutineScope(Dispatchers.IO).launch {
+                    try {
+                        val response = SupabaseClient.apiService.registerUser(newUser)
+                        withContext(Dispatchers.Main) {
+                            if (response.isSuccessful) {
+                                Toast.makeText(this@RegisterActivity, "Registrasi Berhasil!", Toast.LENGTH_SHORT).show()
+                                finish()
+                            } else {
+                                Toast.makeText(this@RegisterActivity, "Gagal Registrasi: ${response.errorBody()?.string()}", Toast.LENGTH_LONG).show()
+                            }
+                        }
+                    } catch (e: Exception) {
+                        withContext(Dispatchers.Main) {
+                            Toast.makeText(this@RegisterActivity, "Error: ${e.message}", Toast.LENGTH_LONG).show()
+                        }
+                    }
+                }
             } else {
-                ""
+                Toast.makeText(this, "Semua field harus diisi!", Toast.LENGTH_SHORT).show()
             }
-
-            val username = binding.inputUsername.text.toString()
-            val password = binding.inputPassword.text.toString()
-            val confirmPassword = binding.inputConfirmPassword.text.toString()
-
-            val sharedPref = getSharedPreferences("USER_PREF", Context.MODE_PRIVATE)
-            val editor = sharedPref.edit()
-            editor.putString("NAMA", nama)
-            editor.putString("EMAIL", email)
-            editor.putString("TANGGAL_LAHIR", tanggalLahir)
-            editor.putString("JENIS_KELAMIN", jenisKelamin)
-            editor.putString("USERNAME", username)
-            editor.putString("PASSWORD", password)
-            editor.putString("CONFIRM_PASSWORD", confirmPassword)
-            editor.apply()
-
-            val intent = Intent(this, VerifikasiActivity::class.java)
-            startActivity(intent)
         }
     }
 }
